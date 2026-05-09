@@ -10,6 +10,7 @@
 const config = useAppConfig();
 useSeoMeta({
   title: config.title,
+  
 });
 </script>
 

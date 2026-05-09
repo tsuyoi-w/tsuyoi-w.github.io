@@ -15,9 +15,9 @@ Du texte normal, des **mots en gras**, de l'_italique_, ou du `code inline`.
 
 ### Listes
 
-- Premier point
-- Deuxième point
-- Troisième point
+    - Premier point
+    - Deuxième point
+    - Troisième point
 
 ### Code
 

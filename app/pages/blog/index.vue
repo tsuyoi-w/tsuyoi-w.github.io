@@ -68,7 +68,7 @@ const filteredPosts = computed(() =>
 );
 
 useSeoMeta({
-  title: posts[0].title,
+  title: "Tsuyoi - blogs"
 });
 </script>
 
