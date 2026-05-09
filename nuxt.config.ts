@@ -18,5 +18,9 @@ export default defineNuxtConfig({
         {rel: 'icon', 'type': 'image/png', href: '/Logo/t.png'}
       ]
     }
+  },
+  nitro: {
+    preset: 'github-pages'
   }
+
 });
