@@ -1,3 +1,3 @@
-export default defineAppConfig ({
-    title: "Tsuyoi",
-})
+export default defineAppConfig({
+  title: "Tsuyoi",
+});

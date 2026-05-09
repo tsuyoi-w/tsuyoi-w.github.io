@@ -17,5 +17,6 @@ nav {
   height: 50px;
   font-size: 30px;
   border-bottom: solid white 5px;
+  overflow: hidden;
 }
 </style>

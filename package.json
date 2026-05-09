@@ -11,10 +11,14 @@
   },
   "dependencies": {
     "@nuxt/content": "^3.13.0",
+    "@nuxtjs/color-mode": "^4.0.0",
     "better-sqlite3": "^12.9.0",
     "gh-pages": "^6.3.0",
     "nuxt": "^4.4.4",
     "vue": "^3.5.33",
     "vue-router": "^5.0.6"
+  },
+  "devDependencies": {
+    "@shikijs/markdown-exit": "^4.0.2"
   }
 }

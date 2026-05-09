@@ -6,32 +6,66 @@
         {{ posts.length }} article{{ posts.length > 1 ? "s" : "" }}
       </p>
     </header>
-
+    <div v-if="AllTags" class="tags-filter">
+      <button
+        class="tag-btn"
+        :class="{ active: !activeTag }"
+        @click="activeTag = null"
+      >
+        Tous
+      </button>
+      <button
+        v-for="tag in AllTags"
+        :key="tag"
+        class="tag-btn"
+        :class="{ active: activeTag === tag }"
+        @click="activeTag = tag"
+      >
+        {{ tag }}
+      </button>
+    </div>
     <ul class="posts-grid">
-      <li v-for="post in posts" :key="post.slug" class="post-card">
+      <li v-for="post in filteredPosts" :key="post.slug" class="post-card">
         <NuxtLink :to="`/blog/${post.title}`" class="post-link">
           <div v-if="post.cover" class="post-cover">
             <img :src="post.cover" :alt="post.title" />
           </div>
           <div class="post-body">
             <div class="post-meta">
-              <time v-if="post.dateFormatted" class="post-date">{{ post.dateFormatted }}</time>
-              <span v-for="tag in post.tags" :key="tag" class="post-tag">{{ tag }}</span>
+              <time v-if="post.dateFormatted" class="post-date">{{
+                post.dateFormatted
+              }}</time>
+              <span v-for="tag in post.tags" :key="tag" class="post-tag">{{
+                tag
+              }}</span>
             </div>
             <h2 class="post-title">{{ post.title }}</h2>
-            <p v-if="post.description" class="post-description">{{ post.description }}</p>
+            <p v-if="post.description" class="post-description">
+              {{ post.description }}
+            </p>
             <span class="post-read-more">Lire →</span>
           </div>
         </NuxtLink>
       </li>
     </ul>
 
+    <p v-if="filteredPosts.length === 0" class="no-posts">
+      Aucun article dans cette catégorie.
+    </p>
   </main>
 </template>
 
 <script setup>
 const posts = await queryCollection("articles").order("date", "DESC").all();
 posts.reverse();
+
+const activeTag = ref(null);
+const AllTags = [...new Set(posts.flatMap((post) => post.tags ?? []))];
+const filteredPosts = computed(() =>
+  activeTag.value
+    ? posts.filter((p) => p.tags.includes(activeTag.value))
+    : posts,
+);
 
 useSeoMeta({
   title: posts[0].title,
@@ -164,7 +198,7 @@ useSeoMeta({
 .post-read-more {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-accent, #111);
+  color: var(--color-accent, white);
 }
 
 .no-posts {

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ContentRenderer v-if="post" :value="post" />
+  <div class="blog">
+    <ContentRenderer class="prose" v-if="post" :value="post" />
     <div v-else>Chargement...</div>
   </div>
 </template>
@@ -8,10 +8,6 @@
 <script setup>
 const route = useRoute();
 const posts = await queryCollection("articles").order("date", "DESC").all();
-
-const title = ref(posts.map(post => post.title))
-
-console.log(title[0])
 
 const getPost = async () => {
   for (let post of posts) {
@@ -23,3 +19,7 @@ const getPost = async () => {
 
 const post = await getPost();
 </script>
+
+<style>
+
+</style>
