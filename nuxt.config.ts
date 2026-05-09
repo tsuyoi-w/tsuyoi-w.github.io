@@ -17,10 +17,10 @@ export default defineNuxtConfig({
       link : [
         {rel: 'icon', 'type': 'image/png', href: '/Logo/t.png'}
       ]
-    }
+    },
+    baseURL: '/tsuyoi/'
   },
   nitro: {
     preset: 'github-pages'
   }
-
 });
