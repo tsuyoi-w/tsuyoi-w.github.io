@@ -1,7 +1,7 @@
 <template>
   <main class="blog-list">
     <header class="blog-header">
-      <h1 class="blog-title">Blogs</h1>
+      <h1 class="blog-title" style="text-decoration: underline">Blogs</h1>
       <p class="blog-subtitle">
         {{ posts.length }} article{{ posts.length > 1 ? "s" : "" }}
       </p>
@@ -68,7 +68,7 @@ const filteredPosts = computed(() =>
 );
 
 useSeoMeta({
-  title: "Tsuyoi - blogs"
+  title: "Tsuyoi - blogs",
 });
 </script>
 
