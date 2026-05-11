@@ -27,7 +27,7 @@ tags: [Bienvenue, premier]
 
 &nbsp;Ici tu trouvera la présentation global du site 
 
-#### Donc a quoi me sert le site ?
+#### A quoi me sert le site ?
 
 &nbsp;Sur ce site je partegerais mets projects de programmation et 
 
